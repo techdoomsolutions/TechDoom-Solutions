@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Title from "../Ui/Title";
 import { motion } from "framer-motion";
-import { Award, Code2, Smile } from "lucide-react";
+import { Code2, Smile } from "lucide-react";
 
 export default function AboutUs() {
   return (
