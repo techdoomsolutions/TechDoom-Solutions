@@ -5,7 +5,10 @@ type TitleProps = {
 export default function Title({ title }: TitleProps) {
   return (
     <>
-      <h1 className="text-2xl sm:text-3xl text-center  font-bold text-green-500 uppercase">{title}</h1>
+      <h1 className="mx-auto text-4xl text-center text-green-500 font-bold">
+        {title}
+      </h1>
     </>
   );
 }
+

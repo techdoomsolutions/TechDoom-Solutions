@@ -4,7 +4,7 @@ import Servise from "@/components/Home/Servise";
 import AboutUs from "@/components/Home/About";
 import WhyUs from "@/components/Home/WhyUs";
 import Footer from "@/components/Home/Footer";
-import Contact from "@/components/contact/contact"
+import Contact from "@/components/Home/contact";
 
 export default function Home() {
   return (

@@ -10,19 +10,19 @@ import {
   LayoutDashboard,
   SearchCheckIcon,
 } from "lucide-react";
+import TitleLine from "../Ui/TitleLine";
 
 export default function Servise() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640; // sm breakpoint
 
   return (
-    <section id="servise" className="w-full p-8 sm:px-16">
+    <section id="servise" className="w-full p-8 sm:px-16 space-y-4">
       <Title title="What We Do" />
-      <p className="mt-2 text-lg text-center text-gray-600 max-w-4xl mx-auto">
-        From web development to cloud solutions, we offer end-to-end IT services
-        tailored to your needs
-      </p>
-      <br />
-      
+      <TitleLine
+        titleline="From web development to cloud solutions, we offer end-to-end IT services
+        tailored to your needs"
+      />
+
       <div className="my-4 mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl">
         {/* First Features Section */}
         <motion.div
@@ -74,15 +74,36 @@ export default function Servise() {
             delay: isMobile ? 0 : 1.0,
             ease: "easeInOut",
           }} // Smooth transition
-          className="order-1 sm:order-2"
+          className="order-1 sm:order-2 rounded-2xl border-1 border-green-500"
         >
-          <Image
-            width={200}
-            height={600}
-            src="/Images/servise.jpg"
-            alt="phone-features"
-            className="mx-auto h-full w-full rounded-2xl  border-1 border-green-500"
-          />
+          <div className="h-1/2 flex items-center">
+            <div className="space-y-2 text-center">
+              <h3 className="mx-auto w-fit text-3xl text-center text-green-500 font-bold">
+                TechDoom Solutions
+              </h3>
+              <p className="mx-auto w-fit text-md text-justify">
+                We Build. You Scale.
+              </p>
+              <p className="mx-auto w-fit text-md text-center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero et
+                animi quos earum repellendus ipsum, amet minus explicabo
+                accusantium reiciendis.
+              </p>
+
+              <button className="mx-auto w-fit bg-green-500 text-white hover:bg-green-500/90 rounded-lg py-2 px-6 cursor-pointer">
+                {`View More`}
+              </button>
+            </div>
+          </div>
+          <div className="h-1/2">
+            <Image
+              width={200}
+              height={600}
+              src="/Images/servise2.png"
+              alt="phone-features"
+              className="mx-auto w-full h-full rounded-2xl"
+            />
+          </div>
         </motion.div>
         {/* Second Features Section */}
         <motion.div
@@ -113,7 +134,7 @@ export default function Servise() {
             </p>
           </div>
           <div className="text-center sm:text-left">
-            <div className="mb-2 w-12 h-12 flex justify-center items-center rounded-full bg-green-100 mx-auto sm:mr-auto sm:ml-0">  
+            <div className="mb-2 w-12 h-12 flex justify-center items-center rounded-full bg-green-100 mx-auto sm:mr-auto sm:ml-0">
               <Globe2 />
             </div>
             <h3 className="mb-2 text-xl font-bold">Domain & Web Hosting</h3>

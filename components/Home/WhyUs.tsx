@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import Title from "../Ui/Title";
+import TitleLine from "../Ui/TitleLine";
 
 const features = [
   {
@@ -25,15 +26,10 @@ const features = [
 
 export default function WhyUs() {
   return (
-    // <section className="py-16 px-6 bg-gradient-to-br from-white to-gray-50" id="why-us">
-    <section className="w-full p-8 sm:px-16">
+    <section className="w-full p-8 sm:px-16 space-y-4">
       <Title title="Why TechDoom" />
-      <p className="mt-2 text-lg text-center text-gray-600 max-w-4xl mx-auto">
-        Ready to turn your idea into a high-impact digital product? Let’s build
-        something powerful, together
-      </p>
-    <br /><br />
-      <div className="my-6 grid md:grid-cols-2 gap-8">
+      <TitleLine titleline="Ready to turn your idea into a high-impact digital product? Let’s build something powerful, together" />
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {features.map((item, index) => (
           <motion.div
             key={index}
