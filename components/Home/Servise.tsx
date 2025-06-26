@@ -23,7 +23,7 @@ export default function Servise() {
         tailored to your needs"
       />
 
-      <div className="my-4 mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-5xl">
+      <div className="my-4 mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-6xl">
         {/* First Features Section */}
         <motion.div
           initial={{ opacity: 0, x: -20 }} // Initial state

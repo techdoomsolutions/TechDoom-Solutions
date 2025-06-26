@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="bg-green-500 text-gray-500 py-10 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="text-gray-300 font-semibold">
+          <div className="text-white font-semibold">
             <Link href="#">
               <Image
                 width={200}
@@ -19,7 +19,7 @@ export default function Footer() {
               />
             </Link>
             <div>
-              <Link href="#" className="hover:text-white">
+              <Link href="#" className="">
                 Email: techdoomsolutions@gmail.com
               </Link>
             </div>
@@ -56,26 +56,26 @@ export default function Footer() {
           </div>
 
           {/* Useful Links */}
-          <div className="text-gray-300 font-semibold">
+          <div className="text-white font-semibold">
             <h3 className="text-xl text-white mb-4">Useful Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="hover:text-white hover:ml-4">
+                <Link href="/" className="hover:ml-4">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="hover:text-white hover:ml-4">
+                <Link href="#about" className="hover:ml-4">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#servise" className="hover:text-white hover:ml-4">
+                <Link href="#servise" className="hover:ml-4">
                   Servise
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-white hover:ml-4">
+                <Link href="#contact" className="hover:ml-4">
                   Contact Us
                 </Link>
               </li>
@@ -83,31 +83,31 @@ export default function Footer() {
           </div>
 
           {/* Our Programs */}
-          <div className="text-gray-300 font-semibold">
+          <div className="text-white font-semibold">
             <h3 className="text-xl text-white mb-4">Our Programs</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-white hover:ml-4">
+                <Link href="#" className="hover:ml-4">
                   Web Design
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white hover:ml-4">
+                <Link href="#" className="hover:ml-4">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white hover:ml-4">
+                <Link href="#" className="hover:ml-4">
                   Product Management
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white hover:ml-4">
+                <Link href="#" className="hover:ml-4">
                   Marketing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white hover:ml-4">
+                <Link href="#" className="hover:ml-4">
                   Graphic Design
                 </Link>
               </li>
@@ -115,19 +115,16 @@ export default function Footer() {
           </div>
 
           {/* Get in Touch */}
-          <div className="text-gray-300 font-semibold">
+          <div className="text-white font-semibold">
             <h3 className="text-xl text-white mb-4">Other Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/faqs" className="hover:text-white hover:ml-4">
+                <Link href="/faqs" className="hover:ml-4">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/privacypolicy"
-                  className="hover:text-white hover:ml-4"
-                >
+                <Link href="/privacypolicy" className="hover:ml-4">
                   Privacy policy
                 </Link>
               </li>

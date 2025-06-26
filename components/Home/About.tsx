@@ -3,24 +3,36 @@
 import Image from "next/image";
 import Title from "../Ui/Title";
 import { motion } from "framer-motion";
-import { Code2, Smile } from "lucide-react";
+import {
+  BrainCircuit,
+  Cloud,
+  Code2,
+  Server,
+  Smartphone,
+  Smile,
+} from "lucide-react";
 import TitleLine from "../Ui/TitleLine";
 
 const specialist = [
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, recusandae.",
+    text: "Custom Software Development tailored to your business needs.",
+    icon: <Code2 />,
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, recusandae.",
+    text: "Web & Mobile App Development with seamless user experiences.",
+    icon: <Smartphone />,
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, recusandae.",
+    text: "End-to-End IT Infrastructure Solutions for startups and enterprises.",
+    icon: <Server />,
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, recusandae.",
+    text: "Cloud Migration & DevOps services for scalability and performance.",
+    icon: <Cloud />,
   },
   {
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, recusandae.",
+    text: "AI, Machine Learning & Data Analytics solutions for business insights.",
+    icon: <BrainCircuit />,
   },
 ];
 
@@ -97,13 +109,18 @@ export default function AboutUs() {
               <h3 className="text-center sm:text-left text-2xl font-bold text-gray-700">
                 What We Specialize In
               </h3>
-              <ul className="list-disc ml-5">
-                {specialist.map((item, index) => (
-                  <li key={index} className="text-md text-gray-500">
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
+
+              {specialist.map((item, index) => (
+                <div
+                  key={index}
+                  className="p-2 rounded-xl shadow-md flex justify-center gap-2 mb-2"
+                >
+                  <div className="mt-0.5 bg-green-500/25 h-fit rounded-full p-2">
+                    {item.icon}
+                  </div>
+                  <p className="text-md text-gray-500">{item.text}</p>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

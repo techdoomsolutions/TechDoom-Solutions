@@ -57,7 +57,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex gap-8 text-lg  items-center justify-center uppercase font-bold">
+        <div className="hidden lg:flex gap-8 text-md items-center justify-center uppercase">
           <Link
             href="/#"
             onClick={(e) => handleSmoothScroll(e, "#")}
@@ -78,6 +78,13 @@ export default function Header() {
             className="hover:text-black tracking-widest"
           >
             Servise
+          </Link>
+          <Link
+            href="/#project"
+            onClick={(e) => handleSmoothScroll(e, "#project")}
+            className="hover:text-black tracking-widest"
+          >
+            Projects
           </Link>
 
           <Link

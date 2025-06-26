@@ -29,7 +29,7 @@ export default function WhyUs() {
     <section className="w-full p-8 sm:px-16 space-y-4">
       <Title title="Why TechDoom" />
       <TitleLine titleline="Ready to turn your idea into a high-impact digital product? Let’s build something powerful, together" />
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {features.map((item, index) => (
           <motion.div
             key={index}

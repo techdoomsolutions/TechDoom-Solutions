@@ -1,17 +1,54 @@
+"use client";
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Form() {
+  const form = useRef<HTMLFormElement>(null);
+  const [sending, setSending] = useState(false);
+
+  const sendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (sending) return;
+
+    setSending(true);
+
+    try {
+      if (form.current) {
+        await emailjs.sendForm(
+          "service_ojbd43l",
+          "template_pah49jx",
+          form.current,
+          "THNMHOge9PjVEDsUy"
+        );
+
+        toast.success("Message sent successfully!");
+        form.current.reset();
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <>
       <form
-        // ref={form}
-        // onSubmit={sendEmail}
+        ref={form}
+        onSubmit={sendEmail}
         className="w-full rounded-lg space-y-4"
       >
-        <div className="">
+        <div>
           <h3 className="text-xl font-semibold uppercase tracking-wide">
-            Need Support !
+            Need Support!
           </h3>
           <p className="text-md">
-            Contact us for a quote , help to join the them.
+            Contact us for a quote, help to join the team.
           </p>
         </div>
         <input
@@ -50,9 +87,14 @@ export default function Form() {
         />
         <button
           type="submit"
-          className="w-full bg-green-500 hover:bg-green-500/90 text-white font-semibold py-2 rounded-md cursor-pointer transition duration-300"
+          className={`w-full ${
+            sending
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-500/90"
+          } text-white font-semibold py-2 rounded-md transition duration-300`}
+          disabled={sending}
         >
-          Send Message
+          {sending ? "Sending..." : "Send Message"}
         </button>
       </form>
     </>

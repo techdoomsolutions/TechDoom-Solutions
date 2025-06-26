@@ -5,6 +5,8 @@ import AboutUs from "@/components/Home/About";
 import WhyUs from "@/components/Home/WhyUs";
 import Footer from "@/components/Home/Footer";
 import Contact from "@/components/Home/contact";
+import { ToastContainer } from "react-toastify";
+import ProjectShowcase from "@/components/Home/ProjectShowcase";
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
       <AboutUs />
       <WhyUs />
       <Contact />
+      <ProjectShowcase />
       <Footer />
+      <ToastContainer position="top-center" />
     </>
   );
 }
