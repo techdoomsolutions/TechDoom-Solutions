@@ -77,7 +77,7 @@ export default function Servise() {
           className="order-1 sm:order-2 rounded-2xl border-1 border-green-500"
         >
           <div className="h-1/2 flex items-center">
-            <div className="space-y-2 text-center">
+            <div className="space-y-2 mx-auto text-center">
               <h3 className="mx-auto w-fit text-3xl text-center text-green-500 font-bold">
                 TechDoom Solutions
               </h3>
@@ -85,9 +85,10 @@ export default function Servise() {
                 We Build. You Scale.
               </p>
               <p className="mx-auto w-fit text-md text-center">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero et
-                animi quos earum repellendus ipsum, amet minus explicabo
-                accusantium reiciendis.
+                We offer expert services in Generative AI, UI/UX design,
+                development, digital marketing, SEO, and domain & web
+                hosting - everything you need to build and grow your online
+                presence.
               </p>
 
               <button className="mx-auto w-fit bg-green-500 text-white hover:bg-green-500/90 rounded-lg py-2 px-6 cursor-pointer">

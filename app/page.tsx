@@ -1,24 +1,20 @@
-import Header from "@/components/Home/Header";
 import Hero from "@/components/Home/Hero";
-import Servise from "@/components/Home/Servise";
 import AboutUs from "@/components/Home/About";
+import Servise from "@/components/Home/Servise";
 import WhyUs from "@/components/Home/WhyUs";
-import Footer from "@/components/Home/Footer";
+import ProjectShowcase from "@/components/Home/ProjectShowcase";
 import Contact from "@/components/Home/contact";
 import { ToastContainer } from "react-toastify";
-import ProjectShowcase from "@/components/Home/ProjectShowcase";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <Hero />
-      <Servise />
       <AboutUs />
+      <Servise />
       <WhyUs />
-      <Contact />
       <ProjectShowcase />
-      <Footer />
+      <Contact />
       <ToastContainer position="top-center" />
     </>
   );

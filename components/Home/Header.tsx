@@ -4,165 +4,126 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const sections = [
+  { name: "Home", id: "#" },
+  { name: "Career", id: "/career" },
+  { name: "About Us", id: "#about" },
+  { name: "Services", id: "#servise" },
+  { name: "Projects", id: "#project" },
+  { name: "Contact Us", id: "#contact" },
+];
 
 export default function Header() {
-  const [visible, setVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setVisible(!visible);
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const handleSmoothScroll = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    e: React.MouseEvent<HTMLAnchorElement>,
     id: string
   ) => {
-    e.preventDefault();
-    const section = document.querySelector(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setVisible(false);
+    // Only scroll if it's a hash (starts with "#")
+    if (id.startsWith("#")) {
+      e.preventDefault();
+      const section = document.querySelector(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => setMenuOpen(false), 200);
+      }
+    } else {
+      // For full page navigation like /career, just close menu with delay
+      setTimeout(() => setMenuOpen(false), 200);
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <>
-      {/* Desktop Navbar */}
-      <div
-        className={`w-full h-20 px-10 flex justify-between items-center transition-all duration-300 z-50 text-white bg-green-500 drop-shadow-xl ${
-          scrolled ? "text-white" : "text-white"
-        }`}
-      >
-        <div className="w-fit">
-          <Link href="/">
-            <div className="flex justify-center items-center gap-2">
-              <Image
-                width={140}
-                height={80}
-                src="/Images/solution.jpg"
-                alt="logo"
-                className="rounded bg-black p-2"
-              />
-            </div>
-          </Link>
+    <header
+      className={`fixed top-0 left-0 z-50 w-full h-20 px-6 lg:px-10 flex items-center justify-between transition-all duration-300 ${
+        scrolled ? "bg-green-600 shadow-md" : "bg-green-500"
+      }`}
+    >
+      {/* Logo */}
+      <Link href="/">
+        <div className="flex items-center gap-2">
+          <Image
+            width={140}
+            height={80}
+            src="/Images/solution.jpg"
+            alt="TechDoom Solutions Logo"
+            className="rounded bg-black p-2"
+          />
         </div>
+      </Link>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex gap-8 text-md items-center justify-center uppercase">
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:flex gap-8 text-white text-sm font-medium tracking-wide uppercase">
+        {sections.map(({ name, id }) => (
           <Link
-            href="/#"
-            onClick={(e) => handleSmoothScroll(e, "#")}
-            className="hover:text-black tracking-widest"
+            key={id}
+            href={id}
+            onClick={(e) => handleSmoothScroll(e, id)}
+            className="transition hover:text-black"
           >
-            Home
+            {name}
           </Link>
-          <Link
-            href="/#about"
-            onClick={(e) => handleSmoothScroll(e, "#about")}
-            className="hover:text-black tracking-widest"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/#servise"
-            onClick={(e) => handleSmoothScroll(e, "#servise")}
-            className="hover:text-black tracking-widest"
-          >
-            Servise
-          </Link>
-          <Link
-            href="/#project"
-            onClick={(e) => handleSmoothScroll(e, "#project")}
-            className="hover:text-black tracking-widest"
-          >
-            Projects
-          </Link>
+        ))}
+      </nav>
 
-          <Link
-            href="/#contact"
-            onClick={(e) => handleSmoothScroll(e, "#contact")}
-            className="hover:text-black tracking-widest"
-          >
-            Contact Us
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        {!visible ? (
-          <Menu
-            onClick={() => {
-              toggleMenu();
-              console.log("asd");
-            }}
-            className="mx-4 lg:hidden cursor-pointer w-8 h-8 text-white"
+      {/* Mobile Menu Icon */}
+      <div className="lg:hidden text-white">
+        {menuOpen ? (
+          <X
+            onClick={toggleMenu}
+            className="w-8 h-8 cursor-pointer transition"
+            aria-label="Close mobile menu"
           />
         ) : (
-          <X
-            onClick={() => {
-              toggleMenu();
-              console.log("asd");
-            }}
-            className="mx-4 lg:hidden cursor-pointer w-8 h-8 text-white"
+          <Menu
+            onClick={toggleMenu}
+            className="w-8 h-8 cursor-pointer transition"
+            aria-label="Open mobile menu"
           />
         )}
       </div>
 
       {/* Mobile Menu */}
-      {visible && (
-        <div className="fixed top-0 pt-20 w-full h-auto text-gray-800 bg-green-500/75 rounded-b-xl lg:hidden">
-          <div className="flex flex-col p-4 pt-8 space-y-4">
-            <Link
-              href="/#"
-              className="py-2"
-              onClick={(e) => {
-                handleSmoothScroll(e, "#");
-                toggleMenu();
-              }}
-            >
-              Home
-            </Link>
-            <Link
-              href="/#about"
-              className="py-2"
-              onClick={(e) => {
-                handleSmoothScroll(e, "#about");
-                toggleMenu();
-              }}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/#servise"
-              className="py-2"
-              onClick={(e) => {
-                handleSmoothScroll(e, "#servise");
-                toggleMenu();
-              }}
-            >
-              Servise
-            </Link>
-            <Link
-              href="/#contact"
-              className="py-2"
-              onClick={(e) => {
-                handleSmoothScroll(e, "#contact");
-                toggleMenu();
-              }}
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      )}
-    </>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-20 left-0 w-full bg-green-500/95 text-white py-6 lg:hidden rounded-b-xl z-40"
+          >
+            <div className="flex flex-col items-center space-y-4 text-lg font-medium">
+              {sections.map(({ name, id }) => (
+                <Link
+                  key={id}
+                  href={id}
+                  onClick={(e) => handleSmoothScroll(e, id)}
+                  className="hover:text-black transition"
+                >
+                  {name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

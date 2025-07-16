@@ -52,9 +52,9 @@ export default function ProjectShowcase() {
       <Title title="Project Showcase" />
       <TitleLine titleline="Explore some of the impactful projects we've delivered across diverse industries" />
       <div className="relative overflow-hidden">
-        <div className="relative w-full overflow-hidden space-y-4">
+        <div className="relative w-full overflow-hidden space-y-6">
           {/* First Slider - Left to Right */}
-          <div className="flex slide-left gap-4 min-w-[200%]">
+          <div className="flex slide-left gap-6 min-w-[200%]">
             {projectList.map((project, index) => (
               <Link href={project.link} target="_blank" key={`first-${index}`}>
                 <div className="relative min-w-[200px] sm:min-w-[250px] md:min-w-[300px] h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden cursor-pointer group">
@@ -72,7 +72,7 @@ export default function ProjectShowcase() {
           </div>
 
           {/* Second Slider - Right to Left */}
-          <div className="flex slide-left reverse gap-4 min-w-[200%]">
+          <div className="flex slide-left reverse gap-6 min-w-[200%]">
             {projectList.map((project, index) => (
               <Link href={project.link} target="_blank" key={`second-${index}`}>
                 <div className="relative min-w-[200px] sm:min-w-[250px] md:min-w-[300px] h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden cursor-pointer group">
